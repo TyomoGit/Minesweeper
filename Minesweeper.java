@@ -14,7 +14,6 @@ class Minesweeper{
     private int[][] openedBlocks; // 開かれたブロックを0と1で記録
     private final int EDGE_LENGTH; // 正方形の辺長(将来変更可能にする予定)
 
-    /** */
     Minesweeper(){
         this.EDGE_LENGTH = 9; // 9x9のフィールド
         this.bombPosition = new int[EDGE_LENGTH][EDGE_LENGTH];
@@ -24,8 +23,10 @@ class Minesweeper{
 
     public int[] convertFromInputToNum(String keyboardInput){
         int[] output = {0, 0};
-        if(keyboardInput.length() > 2){
+        if(keyboardInput.length() != 2){
             System.out.println("error");
+            output[0] = 9;
+            output[1] = 9;
         }else{
             char inputChar1 = keyboardInput.charAt(0);
             char inputChar2 = keyboardInput.charAt(1);
